@@ -43,7 +43,8 @@ fun Version02Screen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly,
     ) {
-        BloqueContador(buttonText = "Contador 1",
+        BloqueContador(
+            buttonText = "Contador 1",
             cuenta = cuenta1,
             incremento = incremento1,
             onClick = {
@@ -52,9 +53,10 @@ fun Version02Screen() {
                 focusManager.clearFocus()  // Para ocultar el teclado
             },
             setIncrement = { incremento1 = it },
-            onResetCount = { cuenta1 = 0 }
+            onResetCount = { cuenta1 = START_COUNT_DEFAULT }
         )
-        BloqueContador(buttonText = "Contador 2",
+        BloqueContador(
+            buttonText = "Contador 2",
             cuenta = cuenta2,
             incremento = incremento2,
             onClick = {
@@ -62,7 +64,7 @@ fun Version02Screen() {
                 cuentaG += incremento2
             },
             setIncrement = { incremento2 = it },
-            onResetCount = { cuenta2 = 0 }
+            onResetCount = { cuenta2 = START_COUNT_DEFAULT }
         )
 
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -72,7 +74,7 @@ fun Version02Screen() {
             Spacer(Modifier.width(6.dp))
             Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
                 contentDescription = "Borrar",
-                Modifier.clickable { cuentaG = 0 })
+                Modifier.clickable { cuentaG = START_COUNT_DEFAULT })
         }
     }
 }
@@ -86,7 +88,7 @@ fun BloqueContador(
     setIncrement: (Int) -> Unit,
     onResetCount: () -> Unit,
 ) {
-    Column() {
+    Column {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center

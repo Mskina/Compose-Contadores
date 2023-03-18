@@ -89,7 +89,7 @@ fun BloqueContadorC(
 
     val focusManager = LocalFocusManager.current
 
-    Column() {
+    Column {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center

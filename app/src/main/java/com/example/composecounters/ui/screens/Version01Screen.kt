@@ -25,7 +25,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-const val START_COUNT_DEFAULT = 0  // https://kotlinlang.org/docs/coding-conventions.html#property-names
+const val START_COUNT_DEFAULT = 0
+// https://kotlinlang.org/docs/coding-conventions.html#property-names
 const val INCREMENT_DEFAULT = 1
 
 @Preview(showBackground = true)
@@ -44,10 +45,11 @@ fun Version01Screen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly,
     ) {
-        Column() {
+        Column {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center) {
+                horizontalArrangement = Arrangement.Center
+            ) {
                 Button(onClick = { cuenta1 += incremento1; cuentaG += incremento1 }) {
                     Text(text = "Contador 1  ($cuenta1)")
                 }
@@ -58,34 +60,33 @@ fun Version01Screen() {
                     contentDescription = "Borrar",
                     Modifier.clickable { cuenta1 = 0 })
             }
-            Row(Modifier.padding(horizontal = 20.dp),
+            Row(
+                Modifier.padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.Bottom) {
+                verticalAlignment = Alignment.Bottom
+            ) {
                 Text(text = "Incremento: ")
-                BasicTextField(
-                    value = incremento1.toString(),
-                    onValueChange = {
-                        incremento1 = it.toIntOrNull() ?: INCREMENT_DEFAULT
-                        if (incremento1 > 99 || incremento1 < 1) incremento1 = INCREMENT_DEFAULT
-                    },
+                BasicTextField(value = incremento1.toString(), onValueChange = {
+                    incremento1 = it.toIntOrNull() ?: INCREMENT_DEFAULT
+                    if (incremento1 > 99 || incremento1 < 1) incremento1 = INCREMENT_DEFAULT
+                },
                     Modifier
                         .width(30.dp)
-                        .height(28.dp),
-                    textStyle = LocalTextStyle.current.copy(
-                        color = MaterialTheme.colors.onBackground,
-                        textAlign = TextAlign.End), // (2)
+                        .height(28.dp), textStyle = LocalTextStyle.current.copy(
+                    color = MaterialTheme.colors.onBackground, textAlign = TextAlign.End
+                ), // (2)
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), // (1)
                     decorationBox = {
                         DecorationBox(it)
-                    }
-                )
+                    })
             }
         }
 
-        Column() {
+        Column {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center) {
+                horizontalArrangement = Arrangement.Center
+            ) {
                 Button(onClick = { cuenta2 += incremento2; cuentaG += incremento2 }) {
                     Text(text = "Contador 2  ($cuenta2)")
                 }
@@ -96,27 +97,25 @@ fun Version01Screen() {
                     contentDescription = "Borrar",
                     Modifier.clickable { cuenta2 = 0 })
             }
-            Row(Modifier.padding(horizontal = 20.dp),
+            Row(
+                Modifier.padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.Bottom) {
+                verticalAlignment = Alignment.Bottom
+            ) {
                 Text(text = "Incremento: ")
-                BasicTextField(
-                    value = incremento2.toString(),
-                    onValueChange = {
-                        incremento2 = it.toIntOrNull() ?: INCREMENT_DEFAULT
-                        if (incremento2 > 99 || incremento2 < 1) incremento2 = INCREMENT_DEFAULT
-                    },
+                BasicTextField(value = incremento2.toString(), onValueChange = {
+                    incremento2 = it.toIntOrNull() ?: INCREMENT_DEFAULT
+                    if (incremento2 > 99 || incremento2 < 1) incremento2 = INCREMENT_DEFAULT
+                },
                     Modifier
                         .width(30.dp)
-                        .height(28.dp),
-                    textStyle = LocalTextStyle.current.copy(
-                        color = MaterialTheme.colors.onBackground,
-                        textAlign = TextAlign.End), // (2)
+                        .height(28.dp), textStyle = LocalTextStyle.current.copy(
+                    color = MaterialTheme.colors.onBackground, textAlign = TextAlign.End
+                ), // (2)
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), // (1)
                     decorationBox = {
                         DecorationBox(it)
-                    }
-                )
+                    })
             }
         }
 
@@ -134,14 +133,16 @@ fun Version01Screen() {
 
 @Composable
 fun DecorationBox(innerTextField: @Composable () -> Unit) {
-    Row(Modifier
-        .clip(shape = RoundedCornerShape(5.dp))
-        .border(width = .5.dp,
-            color = MaterialTheme.colors.primary,
-            shape = RoundedCornerShape(5.dp))
-        .padding(4.dp),
-        verticalAlignment = Alignment.Bottom)
-    { innerTextField() }
+    Row(
+        Modifier
+            .clip(shape = RoundedCornerShape(5.dp))
+            .border(
+                width = .5.dp,
+                color = MaterialTheme.colors.primary,
+                shape = RoundedCornerShape(5.dp)
+            )
+            .padding(4.dp), verticalAlignment = Alignment.Bottom
+    ) { innerTextField() }
 }
 
 
