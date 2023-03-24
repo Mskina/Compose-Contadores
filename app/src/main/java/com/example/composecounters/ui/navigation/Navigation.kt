@@ -9,6 +9,7 @@ import com.example.composecounters.ui.screens.Version01Screen
 import com.example.composecounters.ui.screens.Version02Screen
 import com.example.composecounters.ui.screens.Version03Screen
 import com.example.composecounters.ui.screens.Version04Screen
+import com.example.composecounters.ui.screens.VersionExtra01
 
 @Composable
 fun Navigation() {
@@ -21,6 +22,7 @@ fun Navigation() {
         composable(route = Screens.Version02.route) { Version02Screen() }
         composable(route = Screens.Version03.route) { Version03Screen() }
         composable(route = Screens.Version04.route) { Version04Screen() }
+        composable(route = Screens.VersionExtra01.route) { VersionExtra01() }
 
   }
 }

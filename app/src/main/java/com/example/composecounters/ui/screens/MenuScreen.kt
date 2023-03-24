@@ -31,6 +31,10 @@ fun MenuScreen(navController: NavController) {
         Button(onClick = { navController.navigate(route = Screens.Version04.route) }) {
             Text(text = "Variante alternativa")
         }
+        Button(onClick = { navController.navigate(route = Screens.VersionExtra01.route) }) {
+            Text(text = "VersionExtra01")
+        }
+
     }
 
 }
